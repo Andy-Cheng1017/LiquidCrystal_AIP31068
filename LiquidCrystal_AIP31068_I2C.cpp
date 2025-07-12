@@ -4,7 +4,7 @@
 #include <inttypes.h>
 #include <Wire.h>
 
-#if defined(ARDUINO) && ARDUINO >= 100
+// #if defined(ARDUINO) && ARDUINO >= 100
 
 #include "Arduino.h"
 
@@ -14,15 +14,15 @@ inline size_t LiquidCrystal_AIP31068_I2C::write(uint8_t value) {
 	return 1;
 }
 
-#else
-#include "WProgram.h"
+// #else
+// #include "WProgram.h"
 
-#define printIIC(args)	Wire.send(args)
-inline void LiquidCrystal_AIP31068_I2C::write(uint8_t value) {
-	send(value, 1);
-}
+// #define printIIC(args)	Wire.send(args)
+// inline void LiquidCrystal_AIP31068_I2C::write(uint8_t value) {
+// 	send(value, 1);
+// }
 
-#endif
+// #endif
 
 // When the display powers up, it is configured as follows:
 //
@@ -61,7 +61,7 @@ void LiquidCrystal_AIP31068_I2C::init() {
 void LiquidCrystal_AIP31068_I2C::init_priv() {
 	Wire.begin();
 	_displayfunction = LCD_1LINE | LCD_5x8DOTS | LCD_8BITMODE;
-	begin(_cols, _rows);  
+	// begin(_cols, _rows);  
 }
 
 void LiquidCrystal_AIP31068_I2C::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) {
